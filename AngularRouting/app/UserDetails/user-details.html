@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+    <div>
+        <button (click)='doView()'> view </button>
+
+        <button (click)='doDelete(del.value)'> delete </button>
+        <input type="number" placeholder="enter admin id to delete" #del />
+
+        <br /><br />
+        <table border="1" style="background-color:aquamarine">
+
+            <tr style="background-color:cornsilk">
+                    <th>user_id </th>
+                    <th>name </th>
+                    <th>phone </th>
+                    <th>email </th>
+
+            </tr>
+        
+            <tr *ngFor="let x of testResponse" style="background-color:darkseagreen">
+
+                <td>{{x.User_id}}</td>
+                <td>{{x.Name}}</td>
+                <td>{{x.Phone}}</td>
+                <td>{{x.Email}}</td>
+
+            </tr>
+
+        </table>
+        <a (click)="logout()" href="#">Click Here to logout</a>
+
+    </div>
+</body>
+</html>
