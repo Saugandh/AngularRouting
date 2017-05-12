@@ -20,6 +20,9 @@ var user_details_component_1 = require("./UserDetails/user-details.component");
 var view_service_1 = require("./services/view.service");
 var authentication_service_1 = require("./services/authentication.service");
 var forms_2 = require("@angular/forms");
+.3;
+var Cookie_service_1 = require("./services/Cookie.service");
+var animations_1 = require("@angular/platform-browser/animations");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,9 +30,9 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, routing_module_1.AppRoutingModule, forms_1.ReactiveFormsModule, http_1.HttpModule, forms_2.FormsModule],
+        imports: [platform_browser_1.BrowserModule, routing_module_1.AppRoutingModule, forms_1.ReactiveFormsModule, http_1.HttpModule, forms_2.FormsModule, animations_1.BrowserAnimationsModule],
         declarations: [app_component_1.AppComponent, dash_component_1.DashboardClass, login_component_1.LoginComponentClass, new_user_component_1.NewUser_Class, user_details_component_1.View],
-        providers: [insert_service_1.UserInsert_ServiceClass, view_service_1.ViewUser_ServiceClass, authentication_service_1.AuthenticationService],
+        providers: [insert_service_1.UserInsert_ServiceClass, view_service_1.ViewUser_ServiceClass, authentication_service_1.AuthenticationService, Cookie_service_1.MyCookie],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

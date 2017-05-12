@@ -12,13 +12,16 @@ import { UserInsert_ServiceClass } from './services/insert.service';
 import { View } from './UserDetails/user-details.component';
 import { ViewUser_ServiceClass } from './services/view.service';
 import { AuthenticationService } from './services/authentication.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; .3
+import { MyCookie } from './services/Cookie.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
 
-    imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpModule, FormsModule  ],
+    imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpModule, FormsModule, BrowserAnimationsModule  ],
     declarations: [AppComponent, DashboardClass, LoginComponentClass, NewUser_Class,View],
-    providers: [UserInsert_ServiceClass, ViewUser_ServiceClass, AuthenticationService],
+    providers: [UserInsert_ServiceClass, ViewUser_ServiceClass, AuthenticationService, MyCookie],
     bootstrap: [AppComponent]
 
 })

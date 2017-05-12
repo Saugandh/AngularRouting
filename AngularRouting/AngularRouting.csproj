@@ -198,6 +198,7 @@
     <TypeScriptCompile Include="app\routing.module.ts" />
     <TypeScriptCompile Include="app\services\authentication.service.ts" />
     <TypeScriptCompile Include="app\services\AuthGuard.service.ts" />
+    <TypeScriptCompile Include="app\services\Cookie.service.ts" />
     <TypeScriptCompile Include="app\services\delete.service.ts" />
     <TypeScriptCompile Include="app\services\insert.service.ts" />
     <TypeScriptCompile Include="app\services\view.service.ts" />

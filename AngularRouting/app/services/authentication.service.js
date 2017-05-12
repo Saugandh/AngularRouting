@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var Cookie_service_1 = require("../services/Cookie.service");
 var AuthenticationService = (function () {
-    function AuthenticationService(http) {
+    function AuthenticationService(http, cookie) {
         this.http = http;
+        this.cookie = cookie;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -38,12 +40,13 @@ var AuthenticationService = (function () {
         // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('currentUser');
+        this.cookie.removeAll();
     };
     return AuthenticationService;
 }());
 AuthenticationService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, Cookie_service_1.MyCookie])
 ], AuthenticationService);
 exports.AuthenticationService = AuthenticationService;
 //# sourceMappingURL=authentication.service.js.map

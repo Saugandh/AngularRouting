@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { DeleteUser_ServiceClass } from '../services/delete.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoginComponentClass } from '../Login/login.component';
+import { FileUpload} from 'primeng/primeng';
 @Component({
 
     selector: 'view-tag',
@@ -43,6 +44,7 @@ export class View {
         }
 
     logout() {
+
         this.authService.logout();
         
     }

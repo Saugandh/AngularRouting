@@ -13,10 +13,12 @@ var core_1 = require("@angular/core");
 var authentication_service_1 = require("../services/authentication.service");
 var router_1 = require("@angular/router");
 var user_template_component_1 = require("../NewUser/user-template.component");
+var Cookie_service_1 = require("../services/Cookie.service");
 var LoginComponentClass = (function () {
-    function LoginComponentClass(router, authenticationService) {
+    function LoginComponentClass(router, authenticationService, cookie) {
         this.router = router;
         this.authenticationService = authenticationService;
+        this.cookie = cookie;
         this.model = {};
         this.loading = false;
         this.error = '';
@@ -42,6 +44,7 @@ var LoginComponentClass = (function () {
             }
             else {
                 console.log("Login success");
+                _this.cookie.addCookie(_this.user.username, _this.user.password);
                 _this.router.navigate(['view-user']);
             }
         });
@@ -54,7 +57,7 @@ LoginComponentClass = __decorate([
         templateUrl: './login.html',
     }),
     __metadata("design:paramtypes", [router_1.Router,
-        authentication_service_1.AuthenticationService])
+        authentication_service_1.AuthenticationService, Cookie_service_1.MyCookie])
 ], LoginComponentClass);
 exports.LoginComponentClass = LoginComponentClass;
 //# sourceMappingURL=login.component.js.map

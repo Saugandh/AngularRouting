@@ -4,6 +4,7 @@ import { Headers, Http, Response, HttpModule } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../NewUser/user-template.component';
 import { LoginComponentClass } from '../Login/login.component';
+import { MyCookie } from '../services/Cookie.service';
 
 @Injectable()
 export class AuthenticationService {
@@ -11,7 +12,7 @@ export class AuthenticationService {
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private router: Router;
 
-    constructor(private http: Http) {
+    constructor(private http: Http,private cookie:MyCookie) {
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
@@ -39,5 +40,6 @@ export class AuthenticationService {
         // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('currentUser');
+        this.cookie.removeAll();
     }
 }
