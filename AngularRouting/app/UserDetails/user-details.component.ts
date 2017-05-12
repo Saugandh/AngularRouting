@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 import { DeleteUser_ServiceClass } from '../services/delete.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoginComponentClass } from '../Login/login.component';
-import { FileUpload} from 'primeng/primeng';
+import { FileUpload } from 'primeng/primeng';
+import { MyCookie} from '../services/Cookie.service';
 @Component({
 
     selector: 'view-tag',
@@ -22,7 +23,7 @@ export class View {
     admin: User[];
     testResponse: any;
     constructor(private viewUserService: ViewUser_ServiceClass, private changeDetectorRef: ChangeDetectorRef,
-        private deleteAdminService: DeleteUser_ServiceClass, private authService:AuthenticationService) { };
+        private deleteAdminService: DeleteUser_ServiceClass, private authService:AuthenticationService,private cookie:MyCookie) { };
 
         doView() {
 
@@ -46,6 +47,6 @@ export class View {
     logout() {
 
         this.authService.logout();
-        
+        this.cookie.removeAll();
     }
 }

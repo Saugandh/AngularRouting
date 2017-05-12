@@ -14,12 +14,14 @@ var view_service_1 = require("../services/view.service");
 var core_2 = require("@angular/core");
 var delete_service_1 = require("../services/delete.service");
 var authentication_service_1 = require("../services/authentication.service");
+var Cookie_service_1 = require("../services/Cookie.service");
 var View = (function () {
-    function View(viewUserService, changeDetectorRef, deleteAdminService, authService) {
+    function View(viewUserService, changeDetectorRef, deleteAdminService, authService, cookie) {
         this.viewUserService = viewUserService;
         this.changeDetectorRef = changeDetectorRef;
         this.deleteAdminService = deleteAdminService;
         this.authService = authService;
+        this.cookie = cookie;
     }
     ;
     View.prototype.doView = function () {
@@ -37,6 +39,7 @@ var View = (function () {
     };
     View.prototype.logout = function () {
         this.authService.logout();
+        this.cookie.removeAll();
     };
     return View;
 }());
@@ -47,7 +50,7 @@ View = __decorate([
         providers: [view_service_1.ViewUser_ServiceClass, delete_service_1.DeleteUser_ServiceClass]
     }),
     __metadata("design:paramtypes", [view_service_1.ViewUser_ServiceClass, core_2.ChangeDetectorRef,
-        delete_service_1.DeleteUser_ServiceClass, authentication_service_1.AuthenticationService])
+        delete_service_1.DeleteUser_ServiceClass, authentication_service_1.AuthenticationService, Cookie_service_1.MyCookie])
 ], View);
 exports.View = View;
 //# sourceMappingURL=user-details.component.js.map
