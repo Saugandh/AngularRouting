@@ -9,13 +9,12 @@ import { Router } from '@angular/router';
 import { DeleteUser_ServiceClass } from '../services/delete.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoginComponentClass } from '../Login/login.component';
-import { FileUpload } from 'primeng/primeng';
-import { FileUploadService } from '../services/fileUpload.service';
-
+import { FileUpload} from 'primeng/primeng';
 @Component({
 
     selector: 'view-tag',
     templateUrl: `./user-details.html`,
+    providers: [ViewUser_ServiceClass, DeleteUser_ServiceClass]
 
 })
 

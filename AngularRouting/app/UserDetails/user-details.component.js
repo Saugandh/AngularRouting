@@ -44,6 +44,7 @@ View = __decorate([
     core_1.Component({
         selector: 'view-tag',
         templateUrl: "./user-details.html",
+        providers: [view_service_1.ViewUser_ServiceClass, delete_service_1.DeleteUser_ServiceClass]
     }),
     __metadata("design:paramtypes", [view_service_1.ViewUser_ServiceClass, core_2.ChangeDetectorRef,
         delete_service_1.DeleteUser_ServiceClass, authentication_service_1.AuthenticationService])
