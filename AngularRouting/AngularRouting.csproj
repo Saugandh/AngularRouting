@@ -95,10 +95,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\FileUpload\file.component.html" />
     <Content Include="app\Login\style.css" />
     <Content Include="app\NewUser\newuserstyle.css" />
     <Content Include="app\UserDetails\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Models\Image.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Image.edmx</DependentUpon>
+      <LastGenOutput>Image.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Image.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Image.edmx</DependentUpon>
+      <LastGenOutput>Image1.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -129,6 +140,13 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\Image.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Image.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Image.edmx.diagram">
+      <DependentUpon>Image.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -155,10 +173,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Image.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>Image.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Image.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Image.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -192,6 +229,7 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\Dash\dash.component.ts" />
+    <TypeScriptCompile Include="app\FileUpload\file.component.ts" />
     <TypeScriptCompile Include="app\Login\login.component.ts" />
     <TypeScriptCompile Include="app\NewUser\new-user.component.ts" />
     <TypeScriptCompile Include="app\NewUser\user-template.component.ts" />
@@ -200,6 +238,7 @@
     <TypeScriptCompile Include="app\services\AuthGuard.service.ts" />
     <TypeScriptCompile Include="app\services\Cookie.service.ts" />
     <TypeScriptCompile Include="app\services\delete.service.ts" />
+    <TypeScriptCompile Include="app\services\fileUpload.service.ts" />
     <TypeScriptCompile Include="app\services\insert.service.ts" />
     <TypeScriptCompile Include="app\services\view.service.ts" />
     <TypeScriptCompile Include="app\UserDetails\user-details.component.ts" />
@@ -210,6 +249,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\res\images\" />
     <Folder Include="App_Data\" />
     <Folder Include="e2e\" />
     <Folder Include="src\" />

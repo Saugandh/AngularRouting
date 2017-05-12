@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <p-messages [value]="msgs"></p-messages>
+
+    <p-fileUpload name="demo[]" url="../app/res/images" (onUpload)="onUpload($event)"
+                  multiple="multiple" accept="image/*" maxFileSize="1000000">
+        <ng-template pTemplate type="content">
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+            </ul>
+        </ng-template>
+    </p-fileUpload>
+</body>
+</html>
